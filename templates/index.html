@@ -1,0 +1,42 @@
+{% include "header.html" %}
+
+
+
+<section class="post-section">
+
+        <div class="container post-div">
+            <div class="btn-div">
+            <a href="/add"><button type="submit" class="btn btn-dark btn-lg add-btn ">Add Book</button></a>
+            </div>
+    {% if books: %}
+
+            {% for book in books %}
+
+
+                <div class="card main-card">
+                    <div class="card-body">
+                        <p><b class="b-title"> {{book.title}} </b> &nbsp;&nbsp;&nbsp;&nbsp; {{book.author}} &nbsp;&nbsp;&nbsp;&nbsp; <b class="star-color"> &#9734;</b> {{book.rating}}/10 </p>
+
+                    <a href="{{url_for('delete', id=book.id)}}"><button type="submit" class="btn btn-outline-danger btn-sm">Delete</button></a>  <a href="{{url_for('edit', id=book.id)}}"><button type="submit" class="btn btn-outline-dark btn-sm">Edit rating</button></a>
+
+                    </div>
+                </div>
+
+<!--                    <div class="col-sm-4">-->
+<!--                    <a href="{{url_for('delete', id=book.id)}}"><button type="submit" class="btn btn-danger btn-sm">Delete</button></a>  <a href="{{url_for('edit', id=book.id)}}"><button type="submit" class="btn btn-primary btn-sm">Edit rating</button></a>-->
+<!--                    </div>-->
+
+            {% endfor %}
+    {%else%}
+            <h2>Library is empty.</h2>
+
+    {% endif %}
+    </div>
+
+
+</section>
+
+{% include "footer.html" %}
+
+
+

@@ -1,0 +1,16 @@
+{% include "header.html" %}
+
+<section class="edit-section">
+<div class="container">
+    <div class="edit-section">
+    <form action="{{ url_for('edit') }}" method="POST">
+        <h4>Book Name: <b>{{book.title}}</b></h4>
+        <h4>Current Rating: &#9734; <b>{{book.rating}}</b></h4>
+         <input hidden="hidden" name="id" value="{{book.id}}">
+        <input name="rating" type="text" placeholder="New Rating">
+        <button class="btn btn-dark" type="submit">Change Rating</button>
+    </form>
+    </div>
+</div>
+</section>
+{% include "footer.html" %}

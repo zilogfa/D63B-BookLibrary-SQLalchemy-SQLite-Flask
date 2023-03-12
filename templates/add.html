@@ -1,0 +1,35 @@
+{% include "header.html" %}
+
+<section class="add-section">
+<div class="container-fluid add-con">
+        <div class="row">
+    <form action="/add" method="POST">
+
+        <div class="add-form col-sm-3">
+        <label><h5>Book Name:</h5></label><br>
+        <input type="text" name="title">
+        </div>
+
+        <div class="add-form col-sm-3">
+            <label><h5>Book Author:</h5></label><br>
+        <input type="text" name="author">
+        </div>
+
+        <div class="add-form col-sm-3">
+            <label><h5>Rating: &#9734;(1-10)</h5> </label><br>
+            <input type="text" name="rating"><br>
+<!--            <label for="customRange2" class="form-label">Example range</label>-->
+<!--            <input name="rating" type="range" class="form-range" min="0" max="10" id="customRange2">-->
+
+        </div>
+
+        <div class="add-form btn-add">
+        <button class="btn btn-dark btn-lg" type="submit">Add Book</button>
+        </div>
+
+    </form>
+    </div>
+    </center>
+</div>
+</section>
+{% include "footer.html" %}
