@@ -1,11 +1,12 @@
 
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 
 ##CREATING DATABASE
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///books.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("sqlite:///books.db")
 #Optional to silence the deprecation warning in the console.
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
