@@ -3,10 +3,12 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import os
 
+DATABASE_URL = "postgres://qelubcuipebtss:ad704ce1117505f881071220ee45d4a47e04fe1593ffc3da2adbe5855dc09264@ec2-44-213-228-107.compute-1.amazonaws.com:5432/d1jdr29gtr23dh"
+
 app = Flask(__name__)
 
 ##CREATING DATABASE
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("sqlite:///books.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(DATABASE_URL, "sqlite:///books.db")
 #Optional to silence the deprecation warning in the console.
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
